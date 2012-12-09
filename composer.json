@@ -1,0 +1,24 @@
+{
+    "name": "pascalc/php-properties",
+    "type": "library",
+    "description": "Extract data stored in Java style .properties files in PHP",
+    "keywords": ["properties","parser"],
+    "homepage": "https://github.com/pascalchevrel/PhpProperties",
+    "license": "(MPL 2 or GPL 2.0 or LGPL 2.1)",
+    "authors": [
+        {
+            "name": "Pascal Chevrel",
+            "email": "pascal.chevrel@free.fr",
+            "homepage": "http://chevrel.org",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "xformat": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
