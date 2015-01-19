@@ -22,9 +22,9 @@ class ChooseLocale
     protected $detectedLocale;
     protected $defaultLocale;
     public    $mapLonglocales;
-    public    $rtl = array('ar', 'fa', 'he', 'ur');
+    public    $rtl = ['ar', 'fa', 'he', 'ur'];
 
-    public function __construct($list=array('en-US'))
+    public function __construct($list = ['en-US'])
     {
         $this->HTTPAcceptLang   = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : '';
         $this->supportedLocales = array_unique($list);
@@ -52,7 +52,7 @@ class ChooseLocale
 
         foreach ($acclang as $var) {
             $locale      = $this->cleanHTTPlocaleCode($var);
-            $shortLocale = array_shift((explode('-', $locale)));
+            $shortLocale = explode('-', $locale)[0];
 
             if (in_array($locale, $this->supportedLocales)) {
                 return $locale;
@@ -65,7 +65,7 @@ class ChooseLocale
             // Check if we map visitors short locales to site long locales like en->en-GB
             if ($this->mapLonglocales == true) {
                 foreach ($this->supportedLocales as $supported) {
-                    $shortSupportedLocale = array_shift((explode('-', $supported)));
+                    $shortSupportedLocale = explode('-', $supported)[0];
                     if ($shortLocale == $shortSupportedLocale) {
                         return $supported;
                     }
@@ -93,6 +93,8 @@ class ChooseLocale
         } else {
             $this->detectedLocale = $this->getCompatibleLocale();
         }
+
+        return $this;
     }
 
     public function setDefaultLocale($locale)
@@ -107,15 +109,7 @@ class ChooseLocale
             $this->defaultLocale = $locale;
         }
 
-        return;
-    }
-
-    private function cleanHTTPlocaleCode($str)
-    {
-        $locale = explode(';', $str);
-        $locale = trim($locale[0]);
-
-        return $locale;
+        return $this;
     }
 
     public function getDirection()
@@ -123,4 +117,8 @@ class ChooseLocale
         return in_array($this->detectedLocale, $this->rtl) ? 'rtl' : 'ltr';
     }
 
+    private function cleanHTTPlocaleCode($str)
+    {
+        return trim(explode(';', $str)[0]);
+    }
 }

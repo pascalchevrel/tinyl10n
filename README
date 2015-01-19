@@ -2,6 +2,6 @@ This is a small PHP library that allows you to do locale detection based on HTTP
 
 Its main job is to return the best locale available on your site compared to what your visitors' browsers declare they accept.
 
-It needs PHP >=5.3
+It needs PHP >=5.4
 
 Licence: MPL 2/GPL 2.0/LGPL 2.1
