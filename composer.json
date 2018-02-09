@@ -4,7 +4,7 @@
     "description": "Easy locale detection and automatic fallback to the best locale possible, other l10n niceties",
     "keywords": ["locale detection","l10n"],
     "homepage": "https://github.com/pascalchevrel/tinyl10n",
-    "license": "(MPL 2 or GPL 2.0 or LGPL 2.1)",
+    "license": "MPL-2.0",
     "authors": [
         {
             "name": "Pascal Chevrel",
